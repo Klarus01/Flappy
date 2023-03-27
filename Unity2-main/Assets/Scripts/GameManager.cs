@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameObject loseUI;
+    public ScoreManager sm;
     public int points = 0;
-    public TextMeshProUGUI scoreText;
+    public int highscore = 0;
+
+    public void Start()
+    {
+        sm = FindObjectOfType<ScoreManager>();
+    }
 
     public void StartGame()
     {
@@ -17,23 +19,29 @@ public class GameManager : Singleton<GameManager>
 
     private void ShowLoseUI()
     {
-        loseUI.SetActive(true);
+        sm.loseUI.SetActive(true);
     }
 
     public void RepeatGame()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Game");
+        sm = FindObjectOfType<ScoreManager>();
     }
     public void OnGameOver()
     {
         ShowLoseUI();
+        if (points > highscore)
+        {
+            highscore = points;
+            sm.highscoreText.SetText(highscore.ToString());
+        }
         Time.timeScale = 0;
     }
 
     public void UpdateScore()
     {
         points++;
-        scoreText.text = points.ToString();
+        sm.scoreText.SetText(points.ToString());
     }
 }

@@ -1,10 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private AudioClip soundTrack;
     public float strength = 1;
 
     private Rigidbody2D rb;
@@ -20,6 +19,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //rb.AddForce(new Vector2(0, strength), ForceMode2D.Impulse);
+            AudioManager.instance.FlySFX();
             rb.velocity = Vector2.up * strength;
         }
     }
