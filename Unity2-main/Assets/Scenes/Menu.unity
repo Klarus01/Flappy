@@ -2142,14 +2142,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6099629791654957778, guid: dd8e666024c7f0b4db068a176e744b80, type: 3}
-      propertyPath: AS
-      value: 
-      objectReference: {fileID: 7369619112032966017}
-    - target: {fileID: 6099629791654957778, guid: dd8e666024c7f0b4db068a176e744b80, type: 3}
-      propertyPath: wingClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9ee9030c83358b443b3da1abb3d2b36b, type: 3}
     - target: {fileID: 7369619112317830850, guid: dd8e666024c7f0b4db068a176e744b80, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -2200,8 +2192,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd8e666024c7f0b4db068a176e744b80, type: 3}
---- !u!82 &7369619112032966017 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7369619112317830852, guid: dd8e666024c7f0b4db068a176e744b80, type: 3}
-  m_PrefabInstance: {fileID: 7369619112032966016}
-  m_PrefabAsset: {fileID: 0}

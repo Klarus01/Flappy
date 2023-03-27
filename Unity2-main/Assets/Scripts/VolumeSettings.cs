@@ -4,20 +4,29 @@ using UnityEngine.UI;
 
 public class VolumeSettings : MonoBehaviour
 {
-    [SerializeField]
-    AudioMixer mixer;
-    [SerializeField]
-    Slider musicSlider;
-    [SerializeField]
-    Slider SFXSlider;
+    [SerializeField] AudioMixer mixer;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider SFXSlider;
 
-    const string MIXER_MUSIC = "MusicVolume";
-    const string MIXER_SFX = "SFXVolume";
+    public const string MIXER_MUSIC = "MusicVolume";
+    public const string MIXER_SFX = "SFXVolume";
 
     private void Awake()
     {
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
         SFXSlider.onValueChanged.AddListener(SetSFXVolume);
+    }
+
+    private void Start()
+    {
+        musicSlider.value = PlayerPrefs.GetFloat(AudioManager.MUSIC_KEY, 1f);
+        SFXSlider.value = PlayerPrefs.GetFloat(AudioManager.SFX_KEY, 1f);
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetFloat(AudioManager.MUSIC_KEY, musicSlider.value);
+        PlayerPrefs.SetFloat(AudioManager.SFX_KEY, SFXSlider.value);
     }
 
     void SetMusicVolume(float value)

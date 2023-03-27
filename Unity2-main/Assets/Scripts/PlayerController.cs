@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private AudioClip soundTrack;
     public float strength = 1;
 
     private Rigidbody2D rb;
